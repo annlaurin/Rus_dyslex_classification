@@ -87,7 +87,7 @@ for fold in folds:
 feature_folds, label_folds = dataframe_to_vecs(feature_group_df, folds, BATCH_SUBJECTS)
     
 n_features = 26
-c_params = [0.1, 0.5, 1, 5, 10, 50, 100, 500]  
+c_params = [0.1, 0.5] #, 1, 5, 10, 50, 100, 500]  
 
 
 # run cross validation with recursive feature selection
