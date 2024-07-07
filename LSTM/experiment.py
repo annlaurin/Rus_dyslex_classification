@@ -68,7 +68,7 @@ parser = argparse.ArgumentParser(description="Run Russian Dyslexia Experiments")
 parser.add_argument("--model", dest="model")
 parser.add_argument("--roc", dest="roc", action="store_true")
 parser.add_argument("--no-roc", dest="roc", action="store_false")
-parser.add_argument("--tunesets", type=int, default=2)
+parser.add_argument("--tunesets", type=int, default=40)
 parser.add_argument("--tune", dest="tune", action="store_true")
 parser.add_argument("--no-tune", dest="tune", action="store_false")
 parser.add_argument("--pretrain", dest="pretrain", action="store_true")
@@ -95,7 +95,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 if device == "cuda":
     device = torch.device(f'cuda:{args.cudaid}')
     
-NUM_FOLDS = 3
+NUM_FOLDS = 10
 NUM_TUNE_SETS = args.tunesets
 BATCH_SUBJECTS = args.batch_subjects
 tune = args.tune
