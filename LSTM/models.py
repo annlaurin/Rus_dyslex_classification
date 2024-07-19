@@ -132,7 +132,7 @@ class EyetrackingClassifier(nn.Module):
             subjs, y_preds, y_preds_class, y_trues = aggregate_per_subject(
                 subjs, y_preds, y_preds_class, y_trues
             )
-        return y_preds, y_trues
+        return y_preds, y_trues, subjs
 
     def evaluate(
         self,

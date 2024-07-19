@@ -255,12 +255,12 @@ def main():
             )
             test_accuracies.append(test_accuracy)
             if args.roc:
-                y_preds, y_trues = model.predict_probs(
+                y_preds, y_trues, subjs = model.predict_probs(
                     test_dataset,
                     device=device,
                     per_subj=BATCH_SUBJECTS,
                 )
-                tprs_folds[str(test_fold)] = (y_trues, y_preds)
+                tprs_folds[str(test_fold)] = (y_trues, y_preds, subjs)
                 Roc.get_tprs_aucs(y_trues, y_preds, test_fold)
         
         if tune:
